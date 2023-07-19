@@ -326,9 +326,9 @@ and (max-device-width: 420px){
   /* link */
 
   .link-section{
-    width: 160vw;
+    width: 90vw;
     padding: 2% 5%;
-    width: fit-content;
+    
     height: 20vh;
   }
   .main-link{
@@ -400,6 +400,9 @@ and (max-device-width: 420px){
   }
   .footer-mid{
     flex-wrap: wrap;
+  }
+  .footer-title{
+    padding-left:  10%;
   }
 
 }
