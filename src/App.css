@@ -6,6 +6,10 @@
   margin: auto;
   justify-content: space-between;
   color: hsl(180, 66%, 49%);
+  align-items: center;
+}
+.menu{
+  display: none;
 }
 .navbar-left{
   display: flex;
@@ -300,6 +304,32 @@ and (max-device-width: 420px){
     padding-left: 10%;
     
     
+  }
+  .menubar{
+    background-color: hsl(257, 27%, 26%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 101vh;
+    z-index: 1;
+  }
+  .menubar-items{
+    /* background: red; */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 50px;
+    /* border-bottom: 1px solid white; */
+  }
+
+  .menu{
+    display: block;
+    margin-right: 30px;
   }
   .navbar-items{
     display: none;
