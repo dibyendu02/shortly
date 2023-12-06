@@ -9,16 +9,45 @@ const Links = () => {
     const [btnClass, setBtnClass] = useState("teal");
     const [copy, setCopy] = useState("Copy");
 
-    const shortenLink = async (link) => {
-        try{
-            const res = await axios.get(`https://api.shrtco.de/v2/shorten?url=${link}`);
-            console.log(res.data.result.short_link);
-            setShortLink(res.data.result.short_link);
+    const encodedParams = new URLSearchParams();
+    encodedParams.set('url', `${link}`);
+
+    const options = {
+    method: 'POST',
+    url: 'https://url-shortener-service.p.rapidapi.com/shorten',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': '29facf0dd0msh5ef568fd39aaf1dp12d176jsnfc5b524359f6',
+        'X-RapidAPI-Host': 'url-shortener-service.p.rapidapi.com'
+    },
+    data: encodedParams,
+    };
+
+    
+    const shortenLink = async () => {
+
+        try {
+            const response = await axios.request(options);
+            console.log(response.data);
+            setShortLink(response.data.result_url);
             setIsShortLink(true);
-        }catch(err){
-            console.log(err);
-        }   
+        } catch (error) {
+            console.error(error);
+        }
+
+
+        // try{
+        //     const res = await axios.post(`https://api.shrtco.de/v2/shorten?url=${link}`);
+        //     console.log(res.data.result.short_link);
+        //     setShortLink(res.data.result.short_link);
+        //     setIsShortLink(true);
+        // }catch(err){
+        //     console.log(err);
+        // }   
     }
+
+
+
     const handleClick = (e) => {
         e.preventDefault();
         shortenLink(link);

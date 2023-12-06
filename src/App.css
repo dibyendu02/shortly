@@ -344,7 +344,7 @@ and (max-device-width: 420px){
     flex-direction: column-reverse;
     width: fit-content;
     justify-content: flex-end;
-    height: 90vh;
+    height: 110vh;
   }
   .hero-image{
     width: 90%;
